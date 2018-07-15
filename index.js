@@ -4,7 +4,7 @@ var button = document.getElementById('button');
 let redClassName = 4
 let yellowClassName = 4
 let greenClassName = 4
-let blueClassName = 4
+let initailNumberBlue = 4
    function handleRedTracker(){
     redClassName--
     document.getElementsByClassName("red-tracker")[0].innerHTML = redClassName ;
@@ -14,8 +14,8 @@ let blueClassName = 4
     document.getElementsByClassName("yellow-tracker")[0].innerHTML = yellowClassName ;
    }
    function handleBlueTracker(){
-    blueClassName--
-    document.getElementsByClassName("blue-tracker")[0].innerHTML = blueClassName ;
+    initailNumberBlue--
+    document.getElementsByClassName("blue-tracker")[0].innerHTML = initailNumberBlue ;
    }
    function handleGreenTracker(){
     greenClassName--
@@ -37,30 +37,21 @@ button.onclick = function () {
                   e.target.parentElement.removeChild(red)
                   handleRedTracker()
             } )
-         }
-
-         if (randomNumber === 6 ) {
-            let red = document.getElementsByClassName(`yellow${yellowClassName}`)[0]
-            red.addEventListener("click",function(e){
-                e.target.parentElement.removeChild(red)
+            let  yellow = document.getElementsByClassName(`yellow${yellowClassName}`)[0]
+            yellow.addEventListener("click",function(e){
+                e.target.parentElement.removeChild(yellow)
                 handleYellowTracker()
-          } )
-         }
-
-         if (randomNumber === 6 ) {
-            let red = document.getElementsByClassName(`green${greenClassName}`)[0]
-            red.addEventListener("click",function(e){
-                e.target.parentElement.removeChild(red)
+            } )
+            let green = document.getElementsByClassName(`green${greenClassName}`)[0]
+            green.addEventListener("click",function(e){
+                e.target.parentElement.removeChild(green)
                 handleGreenTracker()
-          } )
-         }
-
-         if (randomNumber === 6 ) {
-            let red = document.getElementsByClassName(`blue${blueClassName}`)[0]
-            red.addEventListener("click",function(e){
-                e.target.parentElement.removeChild(red)
+            } )
+            let blue = document.getElementsByClassName(`blue${initailNumberBlue}`)[0]
+            blue.addEventListener("click",function(e){
+                e.target.parentElement.removeChild(blue)
                 handleBlueTracker()
-          } )
+            } )
          }
 };
 
