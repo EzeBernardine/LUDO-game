@@ -1,41 +1,53 @@
 
 var button = document.getElementById('button');
 
-let redClassName = 4
-let yellowClassName = 4
-let greenClassName = 4
-let blueClassName = 4
+let redClassName = 1
+let yellowClassName = 1
+let greenClassName = 1
+let blueClassName = 1
    function handleRedTracker(){
-    redClassName--
+    redClassName++
     document.getElementsByClassName("red-tracker")[0].innerHTML = redClassName ;
    }
    function handleYellowTracker(){
-    yellowClassName--
+    yellowClassName++
     document.getElementsByClassName("yellow-tracker")[0].innerHTML = yellowClassName ;
    }
    function handleBlueTracker(){
-    blueClassName--
+    blueClassName++
     document.getElementsByClassName("blue-tracker")[0].innerHTML = blueClassName ;
    }
    function handleGreenTracker(){
-    greenClassName--
+    greenClassName++
     document.getElementsByClassName("green-tracker")[0].innerHTML = greenClassName ;
    }
     
-
+// let unlock = document.querySelectorAll(".unlock")
 let arrayFromAllRolledDice = [];
-
+let allRedDiceArr = []
 button.onclick = function () {
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     placeholder.innerHTML = randomNumber;
     arrayFromAllRolledDice.push(randomNumber)
-         if (randomNumber === 6 ) {
+    
+        
+        
+        if (randomNumber === 6 ) {
+            let allRedDiceDiv = document.querySelectorAll(".red")
+            allRedDiceDiv.forEach((each) => allRedDiceArr.push(each))
             let red = document.getElementsByClassName(`red${redClassName}`)[0]
             red.addEventListener("click",function(e){
                 if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6){
                     e.target.parentElement.removeChild(red)
                     handleRedTracker()
+                    if(allRedDiceArr.length === 1){
+                      let unlockRed =  document.getElementsByClassName("unlockRed")[0];
+                      unlockRed.parentElement.removeChild(unlockRed);
+                      let redTracker =  document.querySelector(".red-tracker");
+                      redTracker.parentElement.removeChild(redTracker)
+                    }
                 }
+                allRedDiceArr = []
             } )
             let  yellow = document.getElementsByClassName(`yellow${yellowClassName}`)[0]
             yellow.addEventListener("click",function(e){
@@ -59,10 +71,11 @@ button.onclick = function () {
                 }
             } )
          }
+        
 };
 
-
-
+// console.log()
+// console.log(allRedDiceArr)
 
 
 // console.log(arrayFromAllRolledDice)
