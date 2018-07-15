@@ -23,8 +23,10 @@ let blueClassName = 1
    }
 
 let arrayFromAllRolledDice = [];
-let allRedDiceArr = []
-let allYellowDiceArr = []
+let allRedDiceArr = [];
+let allYellowDiceArr = [];
+let allGreenDiceArr = [];
+let allBlueDiceArr = [];
 button.onclick = function () {
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     placeholder.innerHTML = randomNumber;
@@ -63,19 +65,37 @@ button.onclick = function () {
                 }
                 allYellowDiceArr = []
             } )
+            let allGreenDiceDiv = document.querySelectorAll(".green")
+            allGreenDiceDiv.forEach((each) => allGreenDiceArr.push(each))
             let green = document.getElementsByClassName(`green${greenClassName}`)[0]
             green.addEventListener("click",function(e){
                 if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6){
                     e.target.parentElement.removeChild(green)
                     handleGreenTracker()
+                    if(allGreenDiceArr.length === 1){
+                        let unlockGreenPara =  document.getElementsByClassName("unlockGreen")[0];
+                        unlockGreenPara.parentElement.removeChild(unlockGreenPara);
+                        let greenTracker =  document.querySelector(".green-tracker");
+                        greenTracker.parentElement.removeChild(greenTracker)
+                      }
                 }
+                allGreenDiceArr = [];
             } )
+            let allBlueDiceDiv = document.querySelectorAll(".blue")
+            allBlueDiceDiv.forEach((each) => allBlueDiceArr.push(each))
             let blue = document.getElementsByClassName(`blue${blueClassName}`)[0]
             blue.addEventListener("click",function(e){
                 if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6 ){
                     e.target.parentElement.removeChild(blue)
-                    handleBlueTracker()
+                    handleBlueTracker();
+                    if(allBlueDiceArr.length === 1){
+                        let unlockBluePara =  document.getElementsByClassName("unlockBlue")[0];
+                        unlockBluePara.parentElement.removeChild(unlockBluePara);
+                        let blueTracker =  document.querySelector(".blue-tracker");
+                        blueTracker.parentElement.removeChild(blueTracker)
+                      }
                 }
+                allBlueDiceArr = [];
             } )
         }
         
