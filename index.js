@@ -1,4 +1,4 @@
-let placeholder = document.getElementById('placeholder');
+
 var button = document.getElementById('button');
 
 let redClassName = 4
@@ -23,39 +23,37 @@ let blueClassName = 4
    }
     
 
-let sum = [];
+let arrayFromAllRolledDice = [];
 
 button.onclick = function () {
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     placeholder.innerHTML = randomNumber;
-    let pushedRandomNumber = sum.push(randomNumber)
-    let lastNumber = (sum.length) - 1;
-    console.log(`before redand yellow is ` + sum)
+    arrayFromAllRolledDice.push(randomNumber)
          if (randomNumber === 6 ) {
             let red = document.getElementsByClassName(`red${redClassName}`)[0]
             red.addEventListener("click",function(e){
-                if(sum[sum.length-1] === 6){
+                if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6){
                     e.target.parentElement.removeChild(red)
                     handleRedTracker()
                 }
             } )
             let  yellow = document.getElementsByClassName(`yellow${yellowClassName}`)[0]
             yellow.addEventListener("click",function(e){
-                if(sum[sum.length-1] === 6){
+                if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6){
                      e.target.parentElement.removeChild(yellow)
                      handleYellowTracker()
                 }
             } )
             let green = document.getElementsByClassName(`green${greenClassName}`)[0]
             green.addEventListener("click",function(e){
-                if(sum[sum.length-1] === 6){
+                if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6){
                     e.target.parentElement.removeChild(green)
                     handleGreenTracker()
                 }
             } )
             let blue = document.getElementsByClassName(`blue${blueClassName}`)[0]
             blue.addEventListener("click",function(e){
-                if(sum[sum.length-1] === 6 ){
+                if(arrayFromAllRolledDice[arrayFromAllRolledDice.length-1] === 6 ){
                     e.target.parentElement.removeChild(blue)
                     handleBlueTracker()
                 }
@@ -67,7 +65,7 @@ button.onclick = function () {
 
 
 
-// console.log(sum)
+// console.log(arrayFromAllRolledDice)
 
 
 
@@ -79,8 +77,7 @@ button.onclick = function () {
 
 let general = document.querySelectorAll(".general")
 let arr = [];
-let i
-for (i = 0; i < general.length; i++) {
+for (let i = 0; i < general.length; i++) {
     general[i].addEventListener('click', function () {
         general[i].className = "green";
         arr.push(general[i]);
