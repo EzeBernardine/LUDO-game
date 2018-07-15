@@ -1521,6 +1521,7 @@
     text-align: center;
   }
   button {
+    margin-top: 50px ;
     background-color: rgb(82, 186, 179);
     border-radius: 6px;
     border: none;
@@ -1530,21 +1531,20 @@
     width: 200px;
     cursor: pointer;
     margin-left: 87%;
-    margin-top: -200px;
   }
   #placeholder {
-    height: 50px;
-    width: 50px;
-    padding: 50px;
-    margin-top: -330px;
+    height: 150px;
+    width: 150px;
+    /* padding: 50px; */
+    margin-top: -400px;
 
     margin-left: 87%;
 
     border: 1px solid gray;
 
     border-radius: 10px;  
-
-    font-size:80px;
+    text-align: center;
+    font-size: 80px;
 
   }
 
