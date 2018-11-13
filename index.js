@@ -79,7 +79,7 @@ button.onclick = function () {
                         greenTracker.parentElement.removeChild(greenTracker)
                       }
                 }
-                allGreenDiceArr = [];
+                allGreenDiceArr = []
             } )
             let allBlueDiceDiv = document.querySelectorAll(".blue")
             allBlueDiceDiv.forEach((each) => allBlueDiceArr.push(each))
@@ -95,7 +95,7 @@ button.onclick = function () {
                         blueTracker.parentElement.removeChild(blueTracker)
                       }
                 }
-                allBlueDiceArr = [];
+                allBlueDiceArr = []
             } )
         }
         
